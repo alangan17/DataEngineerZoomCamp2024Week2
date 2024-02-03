@@ -4,6 +4,8 @@
 
 ## Data Engineering Zoomcamp - Week 2
 
+[Week 1 Repo](https://github.com/alangan17/DataEngineerZoomCamp2024Week1)
+
 Welcome to DE Zoomcamp with Mage! 
 
 Mage is an open-source, hybrid framework for transforming and integrating data. ✨
