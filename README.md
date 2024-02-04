@@ -115,4 +115,15 @@ Pipeline: api_to_postgres
 Postgres: structured OLTP database, row oriented, relational database
 
 ## 3. API to GCS
-GCP (Google Cloud Platform) Cloud Storage: cheaper storage, unstructured data, object storage. Able to read data from data lake/ data lake house solution
+Pipeline: api_to_gcs
+
+Purpose: Write Taxi data to GCS (Google Cloud Storage) in partitioned parquet format
+
+Before partition:
+![Alt text](<assets/gcs_before_partitioned.png>)
+
+After partition:
+![Alt text](<assets/gcs_after_partitioned.png>)
+
+GCP (Google Cloud Storage): cheaper storage, unstructured data, object storage. Able to read data from data lake/ data lake house solution
+
