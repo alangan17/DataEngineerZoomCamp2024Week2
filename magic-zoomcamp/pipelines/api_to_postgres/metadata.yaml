@@ -65,7 +65,7 @@ blocks:
   language: sql
   name: load_taxi_data_from_postgres
   retry_config: null
-  status: updated
+  status: failed
   timeout: null
   type: data_loader
   upstream_blocks: []
@@ -91,7 +91,7 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-02-04 02:40:56'
+updated_at: '2024-02-04 03:33:58'
 uuid: api_to_postgres
 variables_dir: /home/src/mage_data/magic-zoomcamp
 widgets: []

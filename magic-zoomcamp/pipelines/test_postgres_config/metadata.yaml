@@ -16,7 +16,7 @@ blocks:
   language: sql
   name: test_postgres
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
@@ -32,7 +32,7 @@ executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: test_config
+name: test_postgres_config
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}
@@ -42,7 +42,7 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-02-04 02:20:37'
-uuid: test_config
+updated_at: '2024-02-04T02:20:37+00:00'
+uuid: test_postgres_config
 variables_dir: /home/src/mage_data/magic-zoomcamp
 widgets: []
