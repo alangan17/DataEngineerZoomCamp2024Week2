@@ -103,12 +103,16 @@ This repository should have the following structure:
 3. [DTC Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_2_workflow_orchestration): a good place to get help from the community on course-specific inquireies.
 4. [Mage GitHub](https://github.com/mage-ai/mage-ai): a good place to open issues or feature requests.
 
-## API to Postgres
-Pipeline: api_to_postgres
-
-## Test connections
+## 1. Test connections
 Pipeline: test_io_config
 It tests the connection to:
 1. Postgres
 2. GCP Cloud Storage (Upload the file `titantic_clean.csv` to the bucket first)
 3. GCP BigQuery
+
+## 2. API to Postgres
+Pipeline: api_to_postgres
+Postgres: structured OLTP database, row oriented, relational database
+
+## 3. API to GCS
+GCP (Google Cloud Platform) Cloud Storage: cheaper storage, unstructured data, object storage. Able to read data from data lake/ data lake house solution
