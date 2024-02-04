@@ -110,11 +110,11 @@ It tests the connection to:
 2. GCP Cloud Storage (Upload the file `titantic_clean.csv` to the bucket first)
 3. GCP BigQuery
 
-## 2. API to Postgres
+## 2. API to On-Premise DB (Postgres)
 Pipeline: api_to_postgres
 Postgres: structured OLTP database, row oriented, relational database
 
-## 3. API to GCS
+## 3. API to Cloud (GCS)
 Pipeline: api_to_gcs
 
 Purpose: Write Taxi data to GCS (Google Cloud Storage) in partitioned parquet format
