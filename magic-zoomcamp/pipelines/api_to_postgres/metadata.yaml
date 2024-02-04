@@ -35,7 +35,8 @@ blocks:
 - all_upstream_blocks_executed: true
   color: null
   configuration: {}
-  downstream_blocks: []
+  downstream_blocks:
+  - load_taxi_data_from_postgres
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -68,7 +69,8 @@ blocks:
   status: failed
   timeout: null
   type: data_loader
-  upstream_blocks: []
+  upstream_blocks:
+  - taxi_data_to_postgres
   uuid: load_taxi_data_from_postgres
 cache_block_output_in_memory: false
 callbacks: []
@@ -91,7 +93,7 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-02-04 03:33:58'
+updated_at: '2024-02-04T03:37:47+00:00'
 uuid: api_to_postgres
 variables_dir: /home/src/mage_data/magic-zoomcamp
 widgets: []

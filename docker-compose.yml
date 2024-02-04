@@ -22,6 +22,8 @@ services:
       - .:/home/src/
       - ~/Documents/secrets/personal-gcp.json:/home/src/personal-gcp.json
     restart: on-failure:5
+    networks:
+      - pg-network
   postgres:
     image: postgres:14
     restart: on-failure
@@ -36,14 +38,17 @@ services:
       - "${POSTGRES_PORT}:5432"
     volumes:
       - ./data/ny_taxi_postgres:/var/lib/postgresql/data
-
+    networks:
+      - pg-network
   pgadmin:
     # Postgres Admin (similar to SQL Server Management Studio)
     image: dpage/pgadmin4
     container_name: pgadmin
+    env_file:
+      - .env
     environment:
-      PGADMIN_DEFAULT_EMAIL: 'admin@admin.com'
-      PGADMIN_DEFAULT_PASSWORD: 'root'
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     ports:
       - 8080:80
     networks:
