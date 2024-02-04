@@ -114,7 +114,7 @@ It tests the connection to:
 Pipeline: api_to_postgres
 Postgres: structured OLTP database, row oriented, relational database
 
-## 3. API to Cloud (GCS)
+## 3. API to Cloud Storage (GCS)
 Pipeline: api_to_gcs
 
 Purpose: Write Taxi data to GCS (Google Cloud Storage) in partitioned parquet format
