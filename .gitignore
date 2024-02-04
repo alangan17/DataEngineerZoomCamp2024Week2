@@ -174,3 +174,6 @@ scratch*
 
 # Secrets
 keys/
+
+# Data, DB
+data/
