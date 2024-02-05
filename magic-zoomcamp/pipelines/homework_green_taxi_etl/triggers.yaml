@@ -1,0 +1,19 @@
+triggers:
+- envs: []
+  last_enabled_at: 2024-02-05 16:40:41.456506
+  name: wandering charm
+  pipeline_uuid: homework_green_taxi_etl
+  schedule_interval: '@daily'
+  schedule_type: time
+  settings: null
+  sla: null
+  start_time: 2024-02-05 05:00:00
+  status: inactive
+  variables:
+    sink_bucket_name: dez2024-wk2-mage
+    sink_gcp_project_id: dez2024-413305
+    sink_partition_cols_list:
+    - lpep_pickup_date
+    sink_pg_table_if_exists: replace
+    sink_table_name: nyc_taxi_data
+    source_url: https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2020-10.csv.gz
