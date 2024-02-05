@@ -16,8 +16,6 @@ def export_data(data, *args, **kwargs):
 
     root_path = f"{bucket_name}/{table_name}"
 
-    data["lpep_pickup_date"] = data["lpep_pickup_datetime"].dt.date
-
     table = pa.Table.from_pandas(data)
 
     gcs = pa.fs.GcsFileSystem()

@@ -31,13 +31,13 @@ blocks:
   language: python
   name: transform_taxi_data
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - load_api_data
   uuid: transform_taxi_data
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks:
@@ -55,7 +55,7 @@ blocks:
   upstream_blocks:
   - transform_taxi_data
   uuid: col_name_camel_to_snake
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     file_source:
@@ -67,13 +67,13 @@ blocks:
   language: python
   name: taxi_data_to_postgres
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
   - col_name_camel_to_snake
   uuid: taxi_data_to_postgres
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -83,7 +83,7 @@ blocks:
   language: python
   name: export_to_gcs_partitioned_parquet_parameter
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -110,7 +110,7 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-02-05 07:03:41'
+updated_at: '2024-02-05 08:16:47'
 uuid: homework_green_taxi_etl
 variables:
   sink_bucket_name: dez2024-wk2-mage

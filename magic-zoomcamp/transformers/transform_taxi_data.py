@@ -19,6 +19,10 @@ def transform(data, *args, **kwargs):
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
+
+    # Create a new column lpep_pickup_date by converting lpep_pickup_datetime to a date.
+    data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date
+
     print(f"Preprocessing: rows with zero passengers: {data['passenger_count'].isin([0]).sum()}")
     data = data[data['passenger_count'] > 0]
 

@@ -40,13 +40,16 @@ def load_data_from_api(*args, **kwargs):
     # native date parsing 
     parse_dates = ['lpep_pickup_datetime', 'lpep_dropoff_datetime']
 
-    return pd.read_csv(
+    df = pd.read_csv(
         url,
         sep=',',
         compression="gzip",
         dtype=taxi_dtypes,
         parse_dates=parse_dates
     )
+    print(f"{len(df)} rows loaded")
+
+    return df
 
 
 @test

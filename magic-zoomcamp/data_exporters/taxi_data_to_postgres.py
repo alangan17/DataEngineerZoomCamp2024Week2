@@ -30,4 +30,4 @@ def export_data_to_postgres(df: DataFrame, **kwargs) -> None:
             if_exists=kwargs.get('sink_pg_table_if_exists', 'replace'),  # Specify resolution policy if table name already exists
         )
 
-    print(f"Data exported to {schema_name}.{table_name}")
+    print(f"{len(df)} rows exported to {schema_name}.{table_name}")
