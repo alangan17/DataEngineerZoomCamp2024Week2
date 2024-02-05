@@ -1,78 +1,74 @@
 blocks:
 - all_upstream_blocks_executed: true
   color: null
-  configuration:
-    data_provider: postgres
-    data_provider_profile: dev
-    dbt: {}
-    disable_query_preprocessing: false
-    export_write_policy: append
-    limit: 1000
-    use_raw_sql: true
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: sql
-  name: test_postgres
-  retry_config: null
-  status: executed
-  timeout: null
-  type: data_loader
-  upstream_blocks: []
-  uuid: test_postgres
-- all_upstream_blocks_executed: true
-  color: null
-  configuration:
-    data_provider: bigquery
-    data_provider_profile: default
-    dbt: {}
-    disable_query_preprocessing: false
-    export_write_policy: append
-    limit: 1000
-    use_raw_sql: true
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: sql
-  name: test_gcp_bigquery
-  retry_config: null
-  status: executed
-  timeout: null
-  type: data_loader
-  upstream_blocks: []
-  uuid: test_gcp_bigquery
-- all_upstream_blocks_executed: true
-  color: null
-  configuration:
-    data_provider: bigquery
-    data_provider_profile: default
-    export_write_policy: append
-  downstream_blocks: []
+  configuration: {}
+  downstream_blocks:
+  - standardize_col_names
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: test_gcp_storage
+  name: load_taxi_gcs
   retry_config: null
   status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: test_gcp_storage
+  uuid: load_taxi_gcs
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - write_taxi_to_bigquery
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: standardize_col_names
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_taxi_gcs
+  uuid: standardize_col_names
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: bigquery
+    data_provider_profile: default
+    data_provider_schema: ny_taxi
+    data_provider_table: green_tab_data
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: append
+    limit: 1000
+    use_raw_sql: false
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: write_taxi_to_bigquery
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - standardize_col_names
+  uuid: write_taxi_to_bigquery
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
 conditionals: []
-created_at: '2024-02-04 02:18:51.346681+00:00'
+created_at: '2024-02-05 04:27:08.361628+00:00'
 data_integration: null
 description: null
 executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: test_io_config
+name: gcs_to_bigquery
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}
@@ -82,7 +78,7 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-02-05 07:05:07'
-uuid: test_io_config
+updated_at: '2024-02-05 07:01:33'
+uuid: gcs_to_bigquery
 variables_dir: /home/src/mage_data/magic-zoomcamp
 widgets: []

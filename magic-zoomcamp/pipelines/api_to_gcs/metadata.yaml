@@ -12,18 +12,18 @@ blocks:
   language: python
   name: load_api_data
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: load_api_data
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration:
     file_source:
       path: transformers/transform_taxi_data.py
   downstream_blocks:
-  - export_to_gcs_partitioned_parquet
+  - export_to_gcs_partitioned_parquet_parameter
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -36,7 +36,7 @@ blocks:
   upstream_blocks:
   - load_api_data
   uuid: transform_taxi_data
-- all_upstream_blocks_executed: true
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks: []
@@ -44,14 +44,14 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: python
-  name: export_to_gcs_partitioned_parquet
+  name: export_to_gcs_partitioned_parquet_parameter
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
   - transform_taxi_data
-  uuid: export_to_gcs_partitioned_parquet
+  uuid: export_to_gcs_partitioned_parquet_parameter
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
@@ -73,7 +73,14 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-02-04T06:33:21+00:00'
+updated_at: '2024-02-05 05:21:13'
 uuid: api_to_gcs
+variables:
+  sink_bucket_name: dez2024-wk2-mage
+  sink_gcp_project_id: dez2024-413305
+  sink_partition_cols_list:
+  - lpep_pickup_date
+  sink_table_name: nyc_taxi_data
+  source_url: https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz
 variables_dir: /home/src/mage_data/magic-zoomcamp
 widgets: []

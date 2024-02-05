@@ -12,7 +12,7 @@ def load_data_from_api(*args, **kwargs):
     """
     Template for loading data from API
     """
-    url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz'
+    url = kwargs.get('source_url')
     
     # Best Practice: Declare data types
     # Benefits:

@@ -17,7 +17,7 @@ def export_data_to_postgres(df: DataFrame, **kwargs) -> None:
     Docs: https://docs.mage.ai/design/data-loading#postgresql
     """
     schema_name = 'ny_taxi'  # Specify the name of the schema to export data to
-    table_name = 'green_taxi'  # Specify the name of the table to export data to
+    table_name = kwargs.get('sink_table_name')
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'dev'
 
@@ -27,5 +27,7 @@ def export_data_to_postgres(df: DataFrame, **kwargs) -> None:
             schema_name,
             table_name,
             index=False,  # Specifies whether to include index in exported table
-            if_exists='replace',  # Specify resolution policy if table name already exists
+            if_exists=kwargs.get('sink_pg_table_if_exists', 'replace'),  # Specify resolution policy if table name already exists
         )
+
+    print(f"Data exported to {schema_name}.{table_name}")

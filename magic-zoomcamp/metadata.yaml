@@ -55,3 +55,4 @@ project_uuid: caaa3fdc89304d87aa3a6681389ce21c
 help_improve_mage: false
 features:
   command_center: true
+  display_local_timezone: true

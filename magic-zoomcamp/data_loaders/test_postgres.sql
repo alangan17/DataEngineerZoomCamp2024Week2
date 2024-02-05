@@ -1,2 +1,4 @@
 -- Docs: https://docs.mage.ai/guides/sql-blocks
-SELECT 1;
+SELECT count(*)
+from ny_taxi.nyc_taxi_data
+--limit 10;

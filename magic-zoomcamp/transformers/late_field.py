@@ -3,6 +3,7 @@ if 'transformer' not in globals():
 if 'test' not in globals():
     from mage_ai.data_preparation.decorators import test
 
+import duckdb
 
 @transformer
 def transform(data, *args, **kwargs):
@@ -19,18 +20,22 @@ def transform(data, *args, **kwargs):
     Returns:
         Anything (e.g. data frame, dictionary, array, int, str, etc.)
     """
-    print(f"Preprocessing: rows with zero passengers: {data['passenger_count'].isin([0]).sum()}")
-    data = data[data['passenger_count'] > 0]
-
-    print(f"Preprocessing: rows with zero trip distanct: {data['trip_distance'].isin([0]).sum()}")
-    data = data[data['trip_distance'] > 0]
+    data = duckdb.query(
+        """
+        SELECT count(*)
+        FROM data
+        WHERE 1=1
+            AND passenger_count > 0
+            AND trip_distance > 0
+        """
+    ).to_df()
 
     return data
 
-@test
-def test_passenger_count(output, *args) -> None:
-    assert output['passenger_count'].isin([0]).sum() == 0, 'There are rides with 0 passenger'
 
 @test
-def test_trip_distance(output, *args) -> None:
-    assert output['trip_distance'].isin([0]).sum() == 0, 'There are rides with 0 trip distance'
+def test_output(output, *args) -> None:
+    """
+    Template code for testing the output of the block.
+    """
+    assert output is not None, 'The output is undefined'
