@@ -114,7 +114,7 @@ It tests the connection to:
 Pipeline: api_to_postgres
 Postgres: structured OLTP database, row oriented, relational database
 
-## 3. API to Cloud Storage (GCS)
+## 3. API to Google Cloud Storage (GCS)
 Pipeline: api_to_gcs
 
 Purpose: Write Taxi data to GCS (Google Cloud Storage) in partitioned parquet format
@@ -127,3 +127,10 @@ After partition:
 
 GCP (Google Cloud Storage): cheaper storage, unstructured data, object storage. Able to read data from data lake/ data lake house solution
 
+## 4. GCS to BigQuery
+Pipeline: gcs_to_bigquery
+
+Purpose: Load Taxi data from GCS to BigQuery (OLAP database, column oriented)
+
+## 5. Parametrize the pipelines
+1. Extract the hardcoded values from the pipeline and put them in the `io_config.yaml` file (variables)
