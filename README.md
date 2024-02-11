@@ -1,8 +1,4 @@
-<div>
-<img src="https://github.com/mage-ai/assets/blob/main/mascots/mascots-shorter.jpeg?raw=true">
-</div>
-
-## Data Engineering Zoomcamp - Week 2
+## Data Engineering Zoomcamp 2024 - Week 2
 
 [Week 1 Repo](https://github.com/alangan17/DataEngineerZoomCamp2024Week1)
 
@@ -134,3 +130,16 @@ Purpose: Load Taxi data from GCS to BigQuery (OLAP database, column oriented)
 
 ## 5. Parametrize the pipelines
 1. Extract the hardcoded values from the pipeline and put them in the `io_config.yaml` file (variables)
+
+
+## Lesson learned
+### ⚡Ready-to-go ELT framework
+Sometimes data engineers/ analysts develop pipelines from scratch as MVP or serve urgent business requests, but they may ignore the technical debts. To reduce the debts, I've created 2 ELT frameworks in the past years for the internal Data Platform team's rapid pipeline development (by modifying json/ yaml). Mage shares the same philosophy: "Do not repeat yourself." commonly used components are already in the templates; choose and adopt or build the template yourself.
+
+### 📊Pipeline orchestration
+Once the data product is delivered (no matter whether data feeds are in batches/real-time), it comes to the supporting phase. It is crucial to have the ability to monitor which part of the pipelines goes wrong, exceeds SLA, and rerun just the failed parts.
+
+### 🚚CI/CD
+Every day, we keep making changes to build better data products, which is the value-added part of data engineers. But code quality and smooth deployment also play an important role (Users seldom care about this until they notice the dashboard doesn't look right). Automation comes to the rescue to achieve this so we can pay more attention to our `core businesses`. Package the unit tests, integration tests (Copilot could help with that), and your dependencies into a dockerfile, then leverage GitHub actions to run the tests and deploy your good-quality data product in minutes.
+
+### "Once a new technology rolls over you, if you're not part of the steamroller, you're part of the road." Stewart Brand
