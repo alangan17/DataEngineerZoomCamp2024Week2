@@ -1,6 +1,7 @@
 ## Data Engineering Zoomcamp 2024 - Week 2
 
 [Week 1 Repo](https://github.com/alangan17/DataEngineerZoomCamp2024Week1)
+Course Website: [https://dezoomcamp.streamlit.app/Module%201%20Introduction%20&%20Prerequisites](https://dezoomcamp.streamlit.app/Module%202%20Workflow%20Orchestration)
 
 Welcome to DE Zoomcamp with Mage! 
 
